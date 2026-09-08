@@ -53,12 +53,12 @@ export default function AttendanceCard({
   }[tip.tone];
 
   const markBtn = (active, activeClass) =>
-    `press flex flex-1 items-center justify-center gap-1.5 rounded-2xl px-2 py-2.5 text-[13px] font-bold ${
+    `press flex min-w-0 flex-1 items-center justify-center gap-1 rounded-2xl px-1 py-2.5 text-[11px] font-bold sm:gap-1.5 sm:px-2 sm:text-[13px] ${
       active ? activeClass : 'glass-soft text-content-muted hover:text-content'
     }`;
 
   return (
-    <article className="glass lift relative overflow-hidden rounded-[26px] p-5">
+    <article className="glass lift relative overflow-hidden rounded-[26px] p-4 sm:p-5">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-20 -top-24 h-60 w-60 rounded-full opacity-[0.18] blur-3xl"
@@ -75,15 +75,17 @@ export default function AttendanceCard({
         </span>
 
         <div className="min-w-0 flex-1">
-          <h3 className="font-display truncate text-[17px] font-bold leading-tight tracking-tight">
+          <h3 className="font-display line-clamp-2 text-[17px] font-bold leading-tight tracking-tight">
             {subject.name}
           </h3>
           <p className="mt-0.5 text-xs text-content-muted">
-            <span className="tnum font-semibold text-content">{subject.attended}</span>
-            <span className="text-content-faint"> / </span>
-            <span className="tnum">{subject.total}</span> attended
+            <span className="whitespace-nowrap">
+              <span className="tnum font-semibold text-content">{subject.attended}</span>
+              <span className="text-content-faint"> / </span>
+              <span className="tnum">{subject.total}</span> attended
+            </span>
             {subject.total - subject.attended > 0 && (
-              <span className="text-content-faint">
+              <span className="whitespace-nowrap text-content-faint">
                 {' · '}
                 <span className="tnum">{subject.total - subject.attended}</span> missed
               </span>
@@ -94,7 +96,7 @@ export default function AttendanceCard({
         <div className="flex shrink-0 items-start gap-1">
           <div className="text-right">
             <p
-              className="font-display tnum text-[26px] font-extrabold leading-none tracking-tight"
+              className="font-display tnum text-[22px] font-extrabold leading-none tracking-tight sm:text-[26px]"
               style={{ color }}
             >
               {Math.round(shown)}
@@ -175,19 +177,19 @@ export default function AttendanceCard({
           onClick={() => mark('present')}
           className={markBtn(todayMark === 'present', 'bg-accent/15 text-accent ring-1 ring-inset ring-accent/40 animate-pop')}
         >
-          <Check className="h-4 w-4" /> Present
+          <Check className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" /> <span className="truncate">Present</span>
         </button>
         <button
           onClick={() => mark('absent')}
           className={markBtn(todayMark === 'absent', 'bg-danger/15 text-danger ring-1 ring-inset ring-danger/40 animate-pop')}
         >
-          <X className="h-4 w-4" /> Absent
+          <X className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" /> <span className="truncate">Absent</span>
         </button>
         <button
           onClick={() => mark('cancelled')}
           className={markBtn(todayMark === 'cancelled', 'bg-content/10 text-content ring-1 ring-inset ring-content/25 animate-pop')}
         >
-          <MinusCircle className="h-4 w-4" /> Off
+          <MinusCircle className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" /> <span className="truncate">Off</span>
         </button>
       </div>
 

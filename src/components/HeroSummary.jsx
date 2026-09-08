@@ -35,7 +35,7 @@ export default function HeroSummary({ subjects, settings }) {
   const shown = useCountUp(overall);
 
   return (
-    <section className="glass rise relative overflow-hidden rounded-[28px] p-6">
+    <section className="glass rise relative overflow-hidden rounded-[28px] p-5 sm:p-6">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-24 -top-28 h-72 w-72 rounded-full opacity-25 blur-3xl"
@@ -49,7 +49,7 @@ export default function HeroSummary({ subjects, settings }) {
           </p>
           <div className="mt-1 flex items-baseline gap-1">
             <span
-              className="font-display tnum text-[64px] font-extrabold leading-[0.85] tracking-tight"
+              className="font-display tnum text-[54px] font-extrabold leading-[0.85] tracking-tight sm:text-[64px]"
               style={{ fontVariationSettings: "'opsz' 96" }}
             >
               {Math.round(shown)}
@@ -62,7 +62,7 @@ export default function HeroSummary({ subjects, settings }) {
           </p>
         </div>
 
-        <div className="relative h-24 w-24 shrink-0">
+        <div className="relative h-20 w-20 shrink-0 sm:h-24 sm:w-24">
           <svg viewBox="0 0 80 80" className="h-full w-full -rotate-90">
             <circle cx="40" cy="40" r={R} fill="none" strokeWidth="6"
               stroke="currentColor" className="text-content/[0.09]" />

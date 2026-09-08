@@ -121,7 +121,7 @@ export default function App() {
         <span className="a3" />
       </div>
 
-      <div className="relative mx-auto max-w-2xl px-5 pb-32 pt-8 sm:pt-12">
+      <div className="relative mx-auto max-w-2xl px-4 pb-32 pt-8 sm:px-5 sm:pt-12">
         {/* Masthead */}
         <header className="mb-7 flex items-start justify-between gap-4">
           <div className="min-w-0">
